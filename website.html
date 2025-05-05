@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Galenos Music</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #FFDD00;
+            --blue: #00247D;
+            --red: #CF142B;
+            --dark: #222222;
+            --light: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--blue) 50%, var(--red) 100%);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-tagline {
+            font-style: italic;
+            margin-top: 10px;
+            font-family: 'Lora', serif;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-sidebar {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-sidebar img {
+            max-width: 200px;
+            height: auto;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Lora', serif;
+            color: var(--blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--red);
+            margin: 15px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-cv {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cv-title {
+            font-family: 'Lora', serif;
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
+        
+        .cv-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .cv-item::before {
+            content: '•';
+            color: var(--red);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Events Section */
+        .events {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        
+        .event-details {
+            padding: 20px;
+        }
+        
+        .event-title {
+            color: var(--blue);
+            font-family: 'Lora', serif;
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Modal for Gallery */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80vh;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        /* Video Section */
+        .videos {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe, 
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--red);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: var(--red);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div>
+                <h1 class="site-title">JJ Galenos Music</h1>
+                <p class="site-tagline">Venezuelan music ensemble promoting Latin American culture</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="logo-sidebar">
+                <img src="Logo.jpg" alt="JJ Galenos Music Logo">
+            </div>
+            <div class="hero-text">
+                <h2>Welcome to JJ Galenos Music</h2>
+                <p>A non-profit Venezuelan organization dedicated to the promotion, performance and diffusion of Latin American music in all of its forms. Our mission is to bring the art of music to all areas of society and help bring people together from all stages in life.</p>
+            </div>
+            <div class="hero-image">
+                <img src="Main.jpg" alt="JJ Galenos Music Performance">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2018 by Dr. Jose Javier Blanco, an outstanding gynecologist with a passion for music and the arts, JJ Galenos Music strives to bring the art of music to all areas of society and to help bring people together from all stages in life.</p>
+                    <p>Our mission as an organization is to showcase our Latin American roots and bring together people from all cultures, religions and communities in Canada. A journey that originally started in Venezuela a few years back turned into a dream and later became a reality when we opened our operations centre in Toronto on November 25, 2018.</p>
+                    <p>Twice winner of the Venezuelan National Medical Voice Festival, Dr. Blanco has had a very illustrious musical career both in Venezuela and Canada. Over the years, he has been a member and musical director of various groups including the Carabobo School of Medicine Choir, the Venezuelan organization "Sentir Venezuela" and the prestigious "Upper Canada Choristers" and its "Cantemos" ensemble.</p>
+                    <p>Whether in the operating room or the stage, Dr. Blanco plans to continue following his passions and use his talents to bring people together from all stages in life.</p>
+                </div>
+                <div class="about-cv">
+                    <h3 class="cv-title">Musical CV</h3>
+                    <div class="cv-item">Member and President of the musical group "Mensaje de Amistad" under Father José María Rivolta (1986-1990)</div>
+                    <div class="cv-item">Member of the Municipal Choir of Valencia supervised by Prof. Aura Marina Rios (1988-1990)</div>
+                    <div class="cv-item">Member of the Official choir at the Carabobo School of Medicine directed by Prof. Nuñez Corona (1993-1994)</div>
+                    <div class="cv-item">Member of the Cultural Commission at the Carabobo School of Medicine (2005-2010)</div>
+                    <div class="cv-item">Member of the official choir at the Carabobo School of Medicine under the direction of Prof. Oscar Alpizar (2009-2010)</div>
+                    <div class="cv-item">Active member of the Music Therapy and Religious Services at the Toronto East General Hospital (TEGA) (2012-Present)</div>
+                    <div class="cv-item">Active member of the "Encuentro de artistas Latinoamericanos en Toronto "BOHEMIA", Toronto, Canada (2011-Present)</div>
+                    <div class="cv-item">Member of the prestigious musical group "Upper Canada Choristers" and its subdivision "Cantemos Ensemble" directed by Laurie Evans Fraser (2013-Present)</div>
+                    <div class="cv-item">Musical Director of the dance group "Sentir Venezuela" (2014-Present)</div>
+                    <div class="cv-item">Founder and director of the musical group "Jj Galenos Music" (2018-Present)</div>
+                    
+                    <h3 class="cv-title" style="margin-top: 30px;">Awards and Achievements</h3>
+                    <div class="cv-item">Second Place at the Voz Estudiantil de la Facultad de Ciencias de la Salud at the Carabobo University (1984)</div>
+                    <div class="cv-item">First place at the Voz Medica del Edo. Carabobo (1994, 1998)</div>
+                    <div class="cv-item">First place at the Voz Medica del Edo. Aragua (1996, 1997)</div>
+                    <div class="cv-item">Second place at the National Voz Medica Renglón Estilizado (1998, 1999, 2000, 2002)</div>
+                    <div class="cv-item">Second place at the National Voz Medica Renglón Recio (2004)</div>
+                    <div class="cv-item">Second place at the National Voz Medica Renglón Estilizado (2006)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="events">
+        <div class="container">
+            <h2 class="section-title">Current Events</h2>
+            <div class="event-card">
+                <img src="current_event.jpg" alt="Current Event" class="event-image">
+                <div class="event-details">
+                    <h3 class="event-title">Our Latest Performance</h3>
+                    <p>Join us for an unforgettable evening of Latin American music celebrating the rich cultural heritage of Venezuela and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="1.PNG" alt="JJ Galenos Music Performance 1" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="2.jpg" alt="JJ Galenos Music Performance 2" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="3.jpg" alt="JJ Galenos Music Performance 3" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="4.jpg" alt="JJ Galenos Music Performance 4" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="5.jpg" alt="JJ Galenos Music Performance 5" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="6.jpg" alt="JJ Galenos Music Performance 6" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="JJ Galenos Music Performance 7" onclick="openModal(this.src)">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for enlarged images -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
+    </section>
+
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">Videos</h2>
+            <div class="video-container">
+                <!-- Replace with your actual YouTube embed code or video file -->
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLqJgBF_4coy_3cjHfNfGrMHZg3OtJyd89" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>jjgalenosmusic@gmail.com</p>
+                            <p>jjgalenosmusic@hotmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (647) 981-3345</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/jjgalenosmusic" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/jjgalenosmusic" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@jjgalenosmusic3398" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@jjgalenosmusic" class="social-link" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/jj.galenos.music/" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-text">
+                <p>&copy; 2025 JJ Galenos Music. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality for gallery
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
