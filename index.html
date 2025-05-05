@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Galenos Music - Venezuelan Latin American Music</title>
+    <style>
+        :root {
+            --yellow: #FFDE00;
+            --blue: #00247D;
+            --red: #CF142B;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--blue) 50%, var(--red) 100%);
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            margin-right: 15px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('3.JPG') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--yellow);
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--yellow);
+        }
+
+        .btn.secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn.secondary:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--yellow), var(--blue), var(--red));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--blue);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Director Section */
+        .director {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .director-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .director-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .director-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .director-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .director-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--red);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            left: 0;
+            top: 5px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: calc(100% + 20px);
+            background-color: var(--blue);
+            left: 7px;
+            top: 5px;
+            z-index: -1;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--blue);
+        }
+
+        .timeline-period {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--blue);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--red);
+        }
+
+        .social-media {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--blue);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--red);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+        }
+
+        .footer-nav {
+            margin-bottom: 30px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--yellow);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .about-content,
+            .director-content,
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        /* Venezuela flag inspired colors for various elements */
+        .flag-colors {
+            position: relative;
+            height: 10px;
+            margin: 30px 0;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .flag-yellow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 33.33%;
+            height: 100%;
+            background-color: var(--yellow);
+        }
+
+        .flag-blue {
+            position: absolute;
+            top: 0;
+            left: 33.33%;
+            width: 33.33%;
+            height: 100%;
+            background-color: var(--blue);
+        }
+
+        .flag-red {
+            position: absolute;
+            top: 0;
+            left: 66.66%;
+            width: 33.34%;
+            height: 100%;
+            background-color: var(--red);
+        }
+
+        .award {
+            background-color: var(--gray);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--yellow);
+        }
+
+        .award-title {
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .award-year {
+            font-style: italic;
+            color: var(--red);
+            margin-left: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <h1>JJ Galenos Music</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#director">Director</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="logo-container" style="margin-bottom: 30px;">
+                <img src="Logo.jpg" alt="JJ Galenos Music Logo" style="max-width: 200px; background-color: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            </div>
+            <h2>Celebrating Latin American Music</h2>
+            <p>JJ Galenos Music is a non-profit Venezuelan organization dedicated to the promotion, performance, and diffusion of Latin American music in all of its diversity.</p>
+            <div>
+                <a href="#about" class="btn">Discover Our Story</a>
+                <a href="#contact" class="btn secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About JJ Galenos Music</h2>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="2.jpg" alt="JJ Galenos Music Performance">
+                </div>
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>We are a non-profit Venezuelan organization dedicated to the promotion, performance and diffusion of Latin American music in all of its diversity.</p>
+                    <p>Our mission as an organization is to bring the art of music to all areas of society and to help bring people together from all stages in life. A journey that originally started in Venezuela a few years back turned into a dream and later became a reality when we opened our operations centre in Toronto on November 25, 2018.</p>
+                    <h3>Our Vision</h3>
+                    <p>Our vision for the future is to showcase our culture through the art of music not only to the Hispanic community but also to the Anglo-Saxon community and other cultures throughout Canada and the world.</p>
+                    <p>We strive to bring the art of music to all areas of society and to help bring people together from all stages in life. Our mission is to showcase our Latin American roots and bring together people from all cultures, religions and communities in Canada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director Section -->
+    <section id="director" class="director">
+        <div class="container">
+            <h2 class="section-title">Our Founder & Director</h2>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="director-content">
+                <div class="director-image">
+                    <img src="Main.jpg" alt="Dr. José Javier Blanco Mendez">
+                </div>
+                <div class="director-text">
+                    <h3>Dr. José Javier Blanco Mendez</h3>
+                    <p>Twice winner of the Venezuelan National Medical Voice Festival, Dr. Blanco has had a very illustrious musical career both in Venezuela and Canada. Over the years, he has been a member and musical director of various groups including the Carabobo School of Medicine Choir, the Venezuelan organization "Sentir Venezuela" and the prestigious "Upper Canada Choristers" and its "Cantemos" ensemble.</p>
+                    <p>Whether in the operating room or the stage, Dr. Blanco plans to continue following his passions and use his talents to bring people together from all stages in life.</p>
+                    
+                    <h3>Musical Career</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Founder and director of JJ Galenos Music</div>
+                            <div class="timeline-period">2018-Present</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Musical Director of the dance group "Sentir Venezuela"</div>
+                            <div class="timeline-period">2014-Present</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Member of "Upper Canada Choristers" and "Cantemos Ensemble"</div>
+                            <div class="timeline-period">2013-Present</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Member of "Encuentro de artistas Latinoamericanos en Toronto BOHEMIA"</div>
+                            <div class="timeline-period">2011-Present</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Awards & Achievements</h3>
+                    <div class="award">
+                        <span class="award-title">First place at the Voz Medica del Edo. Carabobo</span>
+                        <span class="award-year">1994, 1998</span>
+                    </div>
+                    <div class="award">
+                        <span class="award-title">First place at the Voz Medica del Edo. Aragua</span>
+                        <span class="award-year">1996, 1997</span>
+                    </div>
+                    <div class="award">
+                        <span class="award-title">Second place at the National Voz Medica Renglón Estilizado</span>
+                        <span class="award-year">1998, 1999, 2000, 2002, 2006</span>
+                    </div>
+                    <div class="award">
+                        <span class="award-title">Second place at the National Voz Medica Renglón Recio</span>
+                        <span class="award-year">2004</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="1.PNG" alt="JJ Galenos Music Performance 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="2.jpg" alt="JJ Galenos Music Performance 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="3.JPG" alt="JJ Galenos Music Performance 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="4.jpg" alt="JJ Galenos Music Performance 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="5.jpg" alt="JJ Galenos Music Performance 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="6.jpg" alt="JJ Galenos Music Performance 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="JJ Galenos Music Performance 7">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> jjgalenosmusic@gmail.com</p>
+                        <p><i class="fas fa-envelope"></i> jjgalenosmusic@hotmail.com</p>
+                        <p><i class="fas fa-phone"></i> (647) 981-3345</p>
+                    </div>
+                    
+                    <h3>Follow Us</h3>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/jj.galenos.music/" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jjgalenosmusic/" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/jjgalenosmusic" class="social-icon" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@jjgalenosmusic3398" class="social-icon" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@jjgalenosmusic" class="social-icon" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/api/placeholder/60/60" alt="JJ Galenos Music Logo">
+            </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#director">Director</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <p class="copyright">&copy; 2025 JJ Galenos Music. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation items
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handling (placeholder)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
