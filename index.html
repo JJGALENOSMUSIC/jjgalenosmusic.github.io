@@ -569,6 +569,107 @@
             color: var(--red);
             margin-left: 10px;
         }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            width: 33.333%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        /* Performances Section Styles */
+        .performances-list {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .performance-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .performance-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .performance-date {
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .performance-venue {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .performance-location {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .performance-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .performance-btn:hover {
+            background-color: var(--red);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
@@ -673,16 +774,26 @@
     <section id="events" class="events">
         <div class="container">
             <h2 class="section-title">Current Events</h2>
-            <div class="event-card" style="height: auto;">
-                <img src="current_event.jpg" alt="Current Event" class="event-image" style="width: 100%; height: auto; max-height: none;">
-                <div class="event-details">
-                    <h3 class="event-title">Our Latest Performance</h3>
-                    <p>Join us for an unforgettable evening of Latin American music celebrating the rich cultural heritage of Venezuela and beyond.</p>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide">
+                        <img src="current_event.jpg" alt="Current Events">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="smokeshow.png" alt="Event 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="3.jpg" alt="Event 3">
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
             </div>
         </div>
     </section>
-   </section>
     <section id="videos" class="videos">
         <div class="container">
             <h2 class="section-title">Videos</h2>
@@ -751,79 +862,91 @@
                         <a href="#" class="performance-btn">Tickets</a>
                     </div>
 
- <!-- Gallery Section -->
-                    <section id="gallery" class="gallery">
-                        <div class="container">
-                            <h2 class="section-title">Our Gallery</h2>
-                            <div class="flag-colors">
-                                <div class="flag-yellow"></div>
-                                <div class="flag-blue"></div>
-                                <div class="flag-red"></div>
-                            </div>
-                            <div class="gallery-grid">
-                                <div class="gallery-item">
-                                    <a href="1.PNG" target="_blank">
-                                        <img src="1.PNG" alt="JJ Galenos Music Performance 1">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="2.jpg" target="_blank">
-                                        <img src="2.jpg" alt="JJ Galenos Music Performance 2" >
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="3.jpg" target="_blank">
-                                        <img src="3.jpg" alt="JJ Galenos Music Performance 3">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="4.jpg" target="_blank">
-                                        <img src="4.jpg" alt="JJ Galenos Music Performance 2" style="object-fit: contain; height: 200px;">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="5.jpg" target="_blank">
-                                        <img src="5.jpg" alt="JJ Galenos Music Performance 5" style="object-fit: contain; height: 200px;">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="6.jpg" target="_blank">
-                                        <img src="6.jpg" alt="JJ Galenos Music Performance 6" style="object-fit: contain; height: 200px;">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="7.jpg" target="_blank">
-                                        <img src="7.jpg" alt="JJ Galenos Music Performance 7">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="8.JPG" target="_blank">
-                                        <img src="8.JPG" alt="JJ Galenos Music Performance 8" style="object-fit: contain; height: 200px;">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="9.jpg" target="_blank">
-                                        <img src="9.jpg" alt="JJ Galenos Music Performance 9">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="10.jpg" target="_blank">
-                                        <img src="10.jpg" alt="JJ Galenos Music Performance 10">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="11.jpg" target="_blank">
-                                        <img src="11.jpg" alt="JJ Galenos Music Performance 11" style="object-fit: contain; height: 200px;">
-                                    </a>
-                                </div>
-                                <div class="gallery-item">
-                                    <a href="12.jpg" target="_blank">
-                                        <img src="12.jpg" alt="JJ Galenos Music Performance 12">
-                                    </a>
-                                </div>
-                            </div>
+                    <!-- Performance 2 -->
+                    <div class="performance-item">
+                        <div class="performance-date">July 10, 2025</div>
+                        <div class="performance-info">
+                            <h3 class="performance-venue"><strong>Let's Talk Boleros</strong></h3>
+                            <p class="performance-location">744 Mt. Pleasant Rd</p>
                         </div>
-                    </section>
+                        <a href="https://www.eventbrite.ca/e/lets-talk-boleros-tickets-1369721577109" target="_blank" class="performance-btn">Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="flag-colors">
+                <div class="flag-yellow"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <a href="1.PNG" target="_blank">
+                        <img src="1.PNG" alt="JJ Galenos Music Performance 1">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="2.jpg" target="_blank">
+                        <img src="2.jpg" alt="JJ Galenos Music Performance 2" >
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="3.jpg" target="_blank">
+                        <img src="3.jpg" alt="JJ Galenos Music Performance 3et">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="4.jpg" target="_blank">
+                        <img src="4.jpg" alt="JJ Galenos Music Performance 2" style="object-fit: contain; height: 200px;">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="5.jpg" target="_blank">
+                        <img src="5.jpg" alt="JJ Galenos Music Performance 5" style="object-fit: contain; height: 200px;">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="6.jpg" target="_blank">
+                        <img src="6.jpg" alt="JJ Galenos Music Performance 6" style="object-fit: contain; height: 200px;">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="7.jpg" target="_blank">
+                        <img src="7.jpg" alt="JJ Galenos Music Performance 7">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="8.JPG" target="_blank">
+                        <img src="8.JPG" alt="JJ Galenos Music Performance 8" style="object-fit: contain; height: 200px;">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="9.jpg" target="_blank">
+                        <img src="9.jpg" alt="JJ Galenos Music Performance 9">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="10.jpg" target="_blank">
+                        <img src="10.jpg" alt="JJ Galenos Music Performance 10">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="11.jpg" target="_blank">
+                        <img src="11.jpg" alt="JJ Galenos Music Performance 11" style="object-fit: contain; height: 200px;">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="12.jpg" target="_blank">
+                        <img src="12.jpg" alt="JJ Galenos Music Performance 12">
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Contact Section -->
@@ -964,6 +1087,35 @@
                 this.reset();
             });
         }
+
+        // Carousel functionality
+        const carousel = document.querySelector('.carousel');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % 3;
+            updateCarousel();
+        }
+
+        // Add click functionality to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
